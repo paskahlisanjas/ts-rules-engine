@@ -1,0 +1,34 @@
+{
+  "name": "[VN] Aggregate Amount Rules",
+  "conditions": {
+    "all": [
+      {
+        "fact": "country",
+        "operator": "equal",
+        "value": "VN"
+      },
+      {
+        "fact": "totalAmount",
+        "operator": "greaterThanInclusive",
+        "value": 100000000
+      },
+      {
+        "fact": "totalAmount",
+        "operator": "lessThan",
+        "value": 325000000
+      },
+      {
+        "fact": "isVerified",
+        "operator": "equal",
+        "value": true
+      }
+    ]
+  },
+  "event": {
+    "type": "set-risk-score",
+    "params": {
+      "riskScore": "MEDIUM",
+      "reason": "[VN] Amount exceeds the maximum allowed"
+    }
+  }
+}

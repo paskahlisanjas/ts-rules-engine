@@ -1,0 +1,24 @@
+{
+  "name": "[PH] Aggregate Amount Rules",
+  "conditions": {
+    "all": [
+      {
+        "fact": "country",
+        "operator": "equal",
+        "value": "PH"
+      },
+      {
+        "fact": "totalAmount",
+        "operator": "greaterThan",
+        "value": 100
+      }
+    ]
+  },
+  "event": {
+    "type": "set-risk-score",
+    "params": {
+      "riskScore": "HIGH",
+      "reason": "It's changed"
+    }
+  }
+}
